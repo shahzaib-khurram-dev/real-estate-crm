@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.modal:modal {
+    width: 50%;
+    height: 80vh;
+    background-color: bisque;
+    border-radius: 1.5rem;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10%;
+    padding-inline: 6%;
+}
+
+.err-msg {
+    width: 70%;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}

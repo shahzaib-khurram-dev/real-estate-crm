@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="src/css/styles.css">
-    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/main.js" defer></script>
 </head>
+
 <body>
-    
+    <button id="login-btn">login</button>
+    <dialog id="login-auth-modal" class="modal">
+        <button id="login-close-btn" class="close-modal-btn">&times;</button>
+        <input class="err-msg" type="text" readonly hidden>
+        <form class="login-form" id="login-form" method="post">
+            <label for="login-username">Username</label>
+            <input type="text" required name="username" id="login-username" autocomplete="off" autofocus>
+            <label for="login-password">Password</label>
+            <input type="password" required name="password" id="login-password">
+            <button id="login-submit-btn">Submit</button>
+        </form>
+    </dialog>
+    <button id="register-btn">register</button>
+    <dialog id="register-auth-modal" class="modal">
+        <button id="register-close-btn" class="close-modal-btn">&times;</button>
+        <input class="err-msg" type="text" readonly hidden>
+        <form class="register-form" id="register-form" method="post">
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" required autocomplete="off" autofocus>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" required autocomplete="off">
+            <label for="register-username">Username</label>
+            <input type="text" required name="username" id="register-username" autocomplete="off">
+            <label for="register-password">Password</label>
+            <input type="password" required name="password" id="register-password">
+            <button id="register-submit-btn">Submit</button>
+        </form>
+    </dialog>
 </body>
+
 </html>
