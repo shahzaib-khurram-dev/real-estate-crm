@@ -30,9 +30,9 @@ body {
 }
 
 .err-msg {
-    width: 70%;
-    position: absolute;
-    top: 8%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 80%;
+    margin-inline: auto;
+    margin-bottom: 0;
+    text-align: center;
+    background-color: white;
 }

@@ -28,7 +28,7 @@ loginForm.addEventListener('submit', e => {
     try {
         (handleLogin(e) === 0) && loginDialog.close()
     } catch (err) {
-        loginErr.value = err.message
+        loginErr.textContent = err.message
         loginErr.style.display = 'block'
     }
 })
@@ -37,7 +37,7 @@ registerForm.addEventListener('submit', e => {
     try {
         (handleRegister(e) === 0) && registerDialog.close()
     } catch (err) {
-        registerErr.value = err.message
+        registerErr.textContent = err.message
         registerErr.style.display = 'block'
     }
 })
