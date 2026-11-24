@@ -16,9 +16,12 @@
         <p class="err-msg"></p>
         <form class="login-form" id="login-form" method="dialog">
             <label for="login-username">Username</label>
-            <input type="text" required name="username" id="login-username" autocomplete="off" autofocus>
+            <input type="text" required id="login-username" autocomplete="off" autofocus>
             <label for="login-password">Password</label>
-            <input type="password" required name="password" id="login-password">
+            <div class="pass-div">
+                <input type="password" required id="login-password">
+                <button type="button" class="show-pass">show</button>
+            </div>
             <button id="login-submit-btn">Submit</button>
         </form>
     </dialog>
@@ -28,13 +31,16 @@
         <p class="err-msg"></p>
         <form class="register-form" id="register-form" method="dialog">
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname" required autocomplete="off" autofocus>
+            <input type="text" id="firstname" required autocomplete="off" autofocus>
             <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname" required autocomplete="off">
+            <input type="text" id="lastname" required autocomplete="off">
             <label for="register-username">Username</label>
-            <input type="text" required name="username" id="register-username" autocomplete="off">
+            <input type="text" required id="register-username" autocomplete="off">
             <label for="register-password">Password</label>
-            <input type="password" required name="password" id="register-password">
+            <div class="pass-div">
+                <input type="password" required id="register-password">
+                <button type="button" class="show-pass">show</button>
+            </div>
             <button id="register-submit-btn">Submit</button>
         </form>
     </dialog>

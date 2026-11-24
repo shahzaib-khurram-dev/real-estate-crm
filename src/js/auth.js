@@ -10,6 +10,7 @@ export function initAuth() {
     const registerDialog = document.querySelector('#register-auth-modal')
     const registerDialogClose = document.querySelector('#register-close-btn')
     const [loginErr, registerErr] = document.querySelectorAll('.err-msg')
+    const showPassBtn = document.querySelectorAll('.show-pass')
 
     loginBtn.addEventListener('click', e => loginDialog.showModal())
     loginDialogClose.addEventListener('click', e => {
@@ -41,6 +42,15 @@ export function initAuth() {
             registerErr.textContent = err.message
             registerErr.style.display = 'block'
         }
+    })
+
+    showPassBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const passField = btn.closest('.pass-div').querySelector('input')
+            const isHidden = passField.type === 'password'
+            btn.textContent = isHidden ? 'Hide' : 'Show'
+            passField.type = isHidden ? 'text' : 'password'
+        })
     })
 
     function handleLogin(e) {
@@ -76,8 +86,8 @@ export function initAuth() {
             throw new Error('first and last name can only contain letters (a-z)')
         else if (!/^[a-zA-Z0-9._]{3,20}$/.test(username.value))
             throw new Error('username is invalid')
-        else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password.value))
-            throw new Error('password must contain 1 uppercase, 1 lowercase, 1 digit')
+        else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])[^\s]{8,}$/.test(password.value))
+            throw new Error('password must contain 1 uppercase, 1 lowercase, 1 digit, 1 special char')
         else {
             if (!users) {
                 localStorage.setItem('users', JSON.stringify(
@@ -99,13 +109,13 @@ export function initAuth() {
                         password: password.value
                     }]
                 ))
-                sessionStorage.setItem('user_session', JSON.stringify(
-                    {
-                        user: username.value
-                    }
-                ))
-                window.location.replace('./pages/dashboard.html')
             }
+            sessionStorage.setItem('user_session', JSON.stringify(
+                {
+                    user: username.value
+                }
+            ))
+            window.location.replace('./pages/dashboard.html')
         }
     }
 }
