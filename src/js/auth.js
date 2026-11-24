@@ -1,6 +1,5 @@
 export function initAuth() {
 
-    const users = JSON.parse(localStorage.getItem('users'))
     const loginBtn = document.querySelector('#login-btn')
     const loginForm = document.querySelector('#login-form')
     const loginDialog = document.querySelector('#login-auth-modal')
@@ -54,6 +53,7 @@ export function initAuth() {
     })
 
     function handleLogin(e) {
+        const users = JSON.parse(localStorage.getItem('users'))
         e.preventDefault()
         const [username, password] = e.target
         if (!username.value.trim() || !password.value)
@@ -78,6 +78,7 @@ export function initAuth() {
 
 
     function handleRegister(e) {
+        const users = JSON.parse(localStorage.getItem('users'))
         e.preventDefault()
         const [firstname, lastname, username, password] = e.target
         if (!firstname.value || !lastname.value || !username.value || !password.value)
@@ -110,12 +111,8 @@ export function initAuth() {
                     }]
                 ))
             }
-            sessionStorage.setItem('user_session', JSON.stringify(
-                {
-                    user: username.value
-                }
-            ))
-            window.location.replace('./pages/dashboard.html')
+            registerDialogClose.click()
+            loginBtn.click()
         }
     }
 }
